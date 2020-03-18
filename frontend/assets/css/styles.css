@@ -1,0 +1,321 @@
+html, body {
+  overscroll-behavior: none; /*Disable side overscroll*/
+  cursor: none; /*Hide cursor*/
+  user-select: none; /*Disable context menu */
+}
+::-webkit-scrollbar {
+  display: none;
+  }
+:root {
+  --light-theme-body-background-color: white !important;
+  --light-theme-body-text-color: black !important;
+  --light-theme-navigation-background: rgb(239,239,239) !important;
+  --light-theme-navigation-text-color: black !important;
+  --light-theme-navigation-brand-hover: #007bff !important;
+  --light-theme-navigation-brand-color: black !important;
+  --light-theme-navigation-link-hover: #007bff !important;
+  --light-theme-list-group-item-color: black !important;
+  --light-theme-list-group-item-background-color: rgb(239,239,239) !important;
+  --light-theme-list-group-color-all: black !important;
+  --light-theme-form-color: black !important;
+  --light-theme-footer-basic-background-color: rgb(239,239,239) !important;
+  --dark-theme-navigation-link-color: black !important;
+  --dark-theme-body-background-color: rgb(46, 46, 46) !important;
+  --dark-theme-body-text-color: white !important;
+  --dark-theme-navigation-background: rgb(94, 94, 94) !important;
+  --dark-theme-navigation-text-color: white !important;
+  --dark-theme-navigation-brand-hover: rgb(252, 143, 71) !important;
+  --dark-theme-navigation-brand-color: white !important;
+  --dark-theme-navigation-link-hover: rgb(252, 143, 71) !important;
+  --dark-theme-navigation-link-color: white !important;
+  --dark-theme-list-group-item-color: rgb(239,239,239) !important;
+  --dark-theme-list-group-item-background-color: rgb(94, 94, 94) !important;
+  --dark-theme-list-group-color-all: white !important;
+  --dark-theme-form-color: white !important;
+  --dark-theme-footer-basic-background-color: rgb(94, 94, 94) !important;
+  --dark-theme-hr: white !important;
+}
+
+.navbar.navbar-light.navbar-expand-md.navigation-clean.light {
+  color: var(--light-theme-navigation-text-color);
+  background-color: var(--light-theme-navigation-background);
+}
+
+.navbar.navbar-light.navbar-expand-md.navigation-clean.dark {
+  color: var(--dark-theme-navigation-text-color);
+  background-color: var(--dark-theme-navigation-background);
+}
+
+.navigation-clean .navbar-brand.light:hover {
+  color: var(--light-theme-navigation-brand-hover);
+}
+
+.navigation-clean .navbar-brand.dark:hover {
+  color: var(--dark-theme-navigation-brand-hover) !important;
+}
+
+.navigation-clean.navbar-light .navbar-nav .nav-link.dark {
+  color: var(--dark-theme-navigation-link-color);
+}
+
+.navigation-clean.navbar-light .navbar-nav .nav-link.light {
+  color: var(--light-theme-navigation-link-color);
+}
+
+.navigation-clean.navbar-light .navbar-nav .nav-link:focus, .navigation-clean.navbar-light .navbar-nav .nav-link.light:hover {
+  color: var(--light-theme-navigation-link-hover);
+}
+
+.navigation-clean.navbar-light .navbar-nav .nav-link:focus, .navigation-clean.navbar-light .navbar-nav .nav-link.dark:hover {
+  color: var(--dark-theme-navigation-link-hover);
+}
+
+body.dark {
+  background-color: var(--dark-theme-body-background-color);
+  color: var(--dark-theme-body-text-color);
+}
+
+body.light {
+  background-color: var(--light-theme-body-background-color);
+  color: var(--light-theme-body-text-color);
+}
+
+.navbar-light .navbar-brand.light {
+  color: var(--light-theme-navigation-brand-color);
+}
+
+.navbar-light .navbar-brand.dark {
+  color: var(--dark-theme-navigation-brand-color);
+}
+
+.list-group-item.light {
+  color: var(--light-theme-list-group-item-color);
+  background-color: var(--light-theme-list-group-item-background-color);
+}
+
+.list-group-item.dark {
+  color: var(--dark-theme-list-group-item-color);
+  background-color: var(--dark-theme-list-group-item-background-color);
+}
+
+.list-group.light * {
+  color: var(--light-theme-list-group-color-all);
+}
+
+.list-group-item.dark * {
+  color: var(--dark-theme-list-group-color-all);
+}
+
+.footer-basic.light {
+  background-color: var(--light-theme-footer-basic-background-color);
+  padding-bottom: 40px;
+  margin-bottom: -50px;
+  margin-top: 50px;
+}
+
+.footer-basic.dark {
+  background-color: var(--dark-theme-footer-basic-background-color);
+  padding-bottom: 40px;
+  margin-bottom: -50px;
+  margin-top: 50px;
+}
+
+.box.light {
+  height: 153.6px;
+  background-color: rgb(239,239,239) !important;
+  color: black;
+  height: 153.6px;
+  margin-bottom: 30px;
+}
+
+.box.dark {
+  height: 153.6px;
+  background-color: rgb(94,94,94) !important;
+  color: white;
+  height: 153.6px;
+  margin-bottom: 30px;
+}
+
+.col-sm-6.col-md-5.col-lg-4.item {
+  height: 153.6px;
+  margin-bottom: 15px;
+}
+
+.btn-secondary.light:not(:disabled):not(.disabled):active, .btn-secondary.light:not(:disabled):not(.disabled).active, .show > .btn-secondary.light.dropdown-toggle {
+  background-color: #007bff !important;
+  height: 25px;
+  padding-top: 0px;
+  font-size: 15px;
+}
+
+.btn-secondary:not(:disabled):not(.disabled), .btn-secondary:not(:disabled):not(.disabled), .show > .btn-secondary.dropdown-toggle {
+  height: 25px;
+  padding-top: 0px;
+  font-size: 15px;
+  background-color: gray !important;
+  color: white;
+}
+
+.btn-secondary.dark:not(:disabled):not(.disabled):active, .btn-secondary.dark:not(:disabled):not(.disabled).active, .show > .btn-secondary.dark.dropdown-toggle .dark {
+  height: 25px;
+  padding-top: 0px;
+  font-size: 15px;
+  background-color: rgb(223,105,26) !important;
+}
+
+.hr.light {
+  background-color: rgb(239,239,239);
+}
+
+.hr.dark {
+  background-color: var(--dark-theme-hr);
+}
+
+.btn.btn-primary.light {
+  background-color: #007bff;
+  height: 33px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  margin-top: 10px;
+  border: 1px solid #007bff;
+}
+
+.btn.btn-primary.dark {
+  background-color: rgb(223,105,26);
+  border: 1px solid rgb(223,105,26);
+  height: 33px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  margin-top: 10px;
+}
+
+.btn-primary.light:not(:disabled):not(.disabled):active, .btn-primary.light:not(:disabled):not(.disabled).active, .show > .btn-primary.light.dropdown-toggle {
+  background-color: #83B5FF;
+  outline: 0 !important;
+  border: 1px solid #007bff;
+  box-shadow: none !important;
+}
+
+.btn-primary.dark:not(:disabled):not(.disabled):active, .btn-primary.dark:not(:disabled):not(.disabled).active, .show > .btn-primary.dark.dropdown-toggle {
+  background-color: rgb(195,90,20);
+  outline: 0 !important;
+  border: 1px solid rgb(223,105,26);
+  box-shadow: none !important;
+}
+
+.btn.light.focus, .btn.light:focus {
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(84,167,255,.4);
+  border: 1px solid #007bff;
+}
+
+.btn.dark.focus, .btn.dark:focus {
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(223,105,26,.4);
+  border: 1px solid rgb(223,105,26);
+}
+
+/* -------------------------- Radio dark theme ------------------------------------------ */
+.custom-radio.dark .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(223,105,26,.4);;
+  border-color: white;
+}
+
+.custom-radio.dark .custom-control-input:active ~ .custom-control-label::before {
+  border-color: #fff;
+  outline: 0;
+  background-color: rgba(223,105,26,.4);;
+}
+
+.custom-radio.dark .custom-control-input:checked ~ .custom-control-label::before, .custom-radio.dark .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: rgb(223,105,26);
+  border-color: aliceblue;
+  border-radius: 50%;
+}
+
+.custom-control .custom-radio.dark {
+  border-color: rgb(223,105,26);
+}
+/* -------------------------- Radio light theme ------------------------------------------ */
+.custom-radio.light .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  border-color: white;
+}
+
+.custom-radio.light .custom-control-input:active ~ .custom-control-label::before {
+  border-color: #fff;
+  outline: 0;
+  background-color: rgba(173, 225, 255, 0.25);
+}
+
+.custom-radio.light .custom-control-input:checked ~ .custom-control-label::before, .custom-radio.light .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #007bff;
+  border-radius: 50%;
+}
+
+/* ----------------------------- Checkbox dark theme ------------------------------------ */
+
+.custom-checkbox.dark .custom-control-input:active ~ .custom-control-label::before {
+  border-color: #fff;
+  outline: 0;
+  background-color: rgba(223,105,26,.4);
+}
+
+.custom-checkbox.dark .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow:  0 0 0 0.2rem rgba(223,105,26,.4);
+  border-color: white;
+}
+
+.custom-checkbox.dark .custom-control-input:checked ~ .custom-control-label::before, .custom-checkbox.dark .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: rgb(223,105,26);
+  border: 1px solid rgb(223,105,26) !important;
+}
+
+.custom-checkbox.dark .custom-control-input:active ~ .custom-control-label::before {
+  border-color: #fff;
+  outline: 0;
+  background-color: rgba(223,105,26,.4);
+}
+
+
+/* ----------------------------- Checkbox light theme ------------------------------------ */
+
+.custom-checkbox.light .custom-control-input:active ~ .custom-control-label::before {
+  border-color: #fff;
+  outline: 0;
+  background-color: rgba(173, 225, 255, 0.25);
+}
+
+.custom-checkbox.light .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0,123,255,.25);
+  border-color: white;
+}
+
+.custom-checkbox.light .custom-control-input:checked ~ .custom-control-label::before, .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #007bff;
+  border: 1px solid #007bff !important;
+}
+
+.custom-checkbox.light .custom-control-input:active ~ .custom-control-label::before {
+  border-color: #fff;
+  outline: 0;
+  background-color: rgba(173, 225, 255, 0.25);
+}
+
+.float-right.datetime {
+  color: black;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.acceso-rapido {
+  float: left;
+  padding-right: 25px;
+  padding-bottom: 10px;
+}

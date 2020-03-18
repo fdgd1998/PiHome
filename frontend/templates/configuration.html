@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>PiHome - Configuración</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='fonts/font-Lato.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='fonts/fontawesome-all.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='fonts/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='fonts/fontawesome5-overrides.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/Features-Boxed.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/Footer-Basic.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/Navigation-Clean.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    </head>
+
+    <body id="body" class="light">
+        <div class="features-boxed">
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean light">
+                <div class="container">
+                    <a class="navbar-brand light" href="/">
+                        <i class="fas fa-arrow-left" style="padding-right: 5px;"></i>
+                        Volver al Panel de Control
+                    </a>
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon" style="background-image: url(&quot;assets/img/iconfinder-icon.svg&quot;);"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link light" href="javascript:confirmation()">
+                                    <i class="fa fa-power-off" style="margin-right: 5px;"></i>
+                                    Reiniciar sistema
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container" style="margin-top: 25px;">
+            <div class="row">
+                <div class="col">
+                    <h5 style="margin-bottom: 0px;">Tema</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5></h5>
+                    <form>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="temaClaro" class="custom-control-input" name="tema" checked="" value="temaClaro">
+                            <label class="custom-control-label" for="temaClaro">Claro</label>
+                        </div>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="temaOscuro" class="custom-control-input" name="tema" value="temaOscuro">
+                            <label class="custom-control-label" for="temaOscuro">Oscuro</label>
+                        </div>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="temaProg" class="custom-control-input" name="tema" value="temaProg">
+                            <label class="custom-control-label" for="temaProg">Programado</label>
+                        </div>
+                    </form>
+                </div>
+                <div hidden name="temaProg" class="col" style="margin-top: 5px;padding-left: 20px;">
+                    <ul class="list-group">
+                        <li class="list-group-item light" style="margin-top: 10px;">
+                            <label style="font-size: 16px;">El modo oscuro se activará durante el tiempo que especifiques abajo.</label>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label style="padding-right: 5px;font-size: 16px;">Desde</label>
+                                            <input class="float-right datetime" id="alarmInitManual" type="time">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label style="padding-right: 5px;font-size: 16px;">Hasta</label>
+                                            <input class="d-inline-block float-right datetime" id="alarmFinManual" type="time">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary light" id="temaProgGuardar" type="button">Guardar</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <hr class="hr light">
+                    <h5 style="margin-bottom: 0px;">Alarma</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5></h5>
+                    <ul class="list-unstyled">
+                        <li style="padding-bottom: 5px;">
+                            <i class="fas fa-info-circle" style="padding-right: 5px;"></i>
+                            <strong>La alarma está desactivada.</strong>
+                        </li>
+                        <li class="text-justify">La alarma puede programarse manualmente o de forma automática (rutinas).</li>
+                        <li><button class="btn btn-primary light" id="actAlarma" type="button">Activar alarma</button></li>
+                    </ul>
+                </div>
+                <div class="col" style="margin-top: 10px;">
+                    <div class="row">
+                        <div class="col">
+                            <label style="font-size: 16px;">Programación</label>
+                            <a href="#" style="padding-left: 15px;"></a>
+                        </div>
+                    </div>
+                    <form class="form light">
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="alarmManual" class="custom-control-input" name="alarma" checked="" value="alarmManual">
+                            <label class="custom-control-label" for="alarmManual">Manual</label>
+                        </div>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="alarmAuto" class="custom-control-input" name="alarma" value="alarmAuto">
+                            <label class="custom-control-label" for="alarmAuto">Basada en una rutina</label>
+                        </div>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="alarmHorario" class="custom-control-input" name="alarma" value="alarmHorario">
+                            <label class="custom-control-label" for="alarmHorario">Programación diaria</label>
+                        </div>
+                    </form>
+                    <ul hidden class="list-group" id="alarmRutinas">
+                        <li class="list-group-item light" style="margin-top: 10px;">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="alarmDurmiendo" class="custom-control-input">
+                                        <label class="custom-control-label" for="alarmDurmiendo">Durmiendo</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="alarmBuenosDias" class="custom-control-input">
+                                        <label class="custom-control-label" for="alarmBuenosDias">Buenos días</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="alarmSalir" class="custom-control-input">
+                                        <label class="custom-control-label" for="alarmSalir">Salir de casa</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul hidden class="list-group" id="alarmProg">
+                        <li class="list-group-item light" style="margin-top: 10px;">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label style="padding-right: 5px;font-size: 16px;">Desde</label>
+                                            <input class="float-right datetime" id="alarmInitManual" type="time">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label style="padding-right: 5px;font-size: 16px;">Hasta</label>
+                                            <input class="d-inline-block float-right datetime" id="alarmFinManual" type="time">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary light" id="alarmProgGuardar" type="button">Guardar</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <hr class="hr light">
+                    <h5 style="margin-bottom: 0px;">Modo vacaciones</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5></h5>
+                    <ul class="list-unstyled">
+                        <li style="padding-bottom: 5px;">
+                            <i class="fas fa-info-circle" style="padding-right: 5px;"></i>
+                            <strong>El modo vacaciones está desactivado.</strong>
+                        </li>
+                        <li class="text-justify">
+                            Cuando este modo está activado, los distintos dispositivos (luces y persianas) se activan y desactivan automáticamente, 
+                            para simular que estás en casa y disuadir a los posibles intrusos.
+                        </li>
+                        <li><button class="btn btn-primary light" id="actVacaciones" type="button">Activar&nbsp;</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <hr class="hr light">
+                    <h5 style="margin-bottom: 0px;">Rutinas</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5></h5>
+                    <ul class="list-unstyled">
+                        <li style="padding-bottom: 5px;">
+                            <i class="fas fa-info-circle" style="padding-right: 5px;"></i>
+                            <strong>Las rutinas están desactivadas.</strong>
+                        </li>
+                        <li class="text-justify">
+                            Con las rutinas puedes programar acciones en lote. Por ejemplo, que cuando te vayas a dormir se apaguen todas las luces, o 
+                            que cuando vayas a salir de casa, se active la alarma, se cierren todas las persianas y se apaguen todas las
+                            luces.
+                        </li>
+                        <li>
+                            <button class="btn btn-primary light" id="actRutinas" type="button">Activar rutinas</button>
+                            <button class="btn btn-primary light" id="configRutinas" type="button" style="margin-left: 8px;">Configurar...</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col" style="margin-top: 5px;padding-left: 20px;">
+                    <form class="form"><label style="font-size: 16px;">Gestión de rutinas</label>
+                        <div class="form-group">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="rutDurmiendo" class="custom-control-input">
+                                        <label class="custom-control-label" for="rutDurmiendo">Durmiendo</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="rutBuenosDias" class="custom-control-input">
+                                        <label class="custom-control-label" for="rutBuenosDias">Buenos días</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="rutSalir" class="custom-control-input">
+                                        <label class="custom-control-label" for="rutSalir">Salir de casa</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5></h5>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <hr class="hr light">
+                        <h5 style="padding-bottom: 5px;">Luz ambiental</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-unstyled">
+                            <li style="padding-bottom: 5px;">
+                                <i class="fas fa-info-circle" style="padding-right: 5px;"></i>
+                                <strong>El sensor de luz ambiental está desactivado.</strong>
+                            </li>
+                            <li class="text-justify">Si se activa, se puede configurar el comportamiento de las persianas y luces en base a la luminosidad exterior.</li>
+                            <li><button class="btn btn-primary light" id="actLuzAmbiente" type="button">Activar luz ambiental</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col">
+                                <h6 style="font-size: 18px;">Gestión de luces</h6>
+                                <form>
+                                    <fieldset>
+                                        <div class="custom-control custom-radio light">
+                                            <input type="radio" id="lucesDes" class="custom-control-input" name="luces" checked="" value="des">
+                                            <label class="custom-control-label" for="lucesDes">Desactivado</label>
+                                        </div>
+                                        <div class="custom-control custom-radio light">
+                                            <input type="radio" id="lucesAct" class="custom-control-input" name="luces" value="act">
+                                            <label class="custom-control-label" for="lucesAct">Activado</label>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <ul hidden id="lista-luces" class="list-group" style="margin-top: 10px;">
+                                    <li class="list-group-item light">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Selecciona los dispositivos:</label>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline2" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline2">Persianas automáticas</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline2" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline2">Persianas automáticas</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline3" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline3">Luces de exterior automáticas</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline4" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline4">Calefacción automática</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="margin-top: 15px;">
+                                <h6 style="font-size: 18px;">Gestión de persianas</h6>
+                                <form>
+                                    <fieldset>
+                                        <div class="custom-control custom-radio light">
+                                            <input type="radio" id="persianasDes" class="custom-control-input" name="persianas" checked="" value="des">
+                                            <label class="custom-control-label" for="persianasDes">Desactivado</label>
+                                        </div>
+                                        <div class="custom-control custom-radio light">
+                                            <input type="radio" id="persianasAct" class="custom-control-input" name="persianas" value="act">
+                                            <label class="custom-control-label" for="persianasAct">Activado</label>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <ul hidden id="lista-persianas" class="list-group" style="margin-top: 10px;">
+                                    <li class="list-group-item light"><span></span>
+                                        <div class="row">
+                                            <div class="col"><label>Selecciona los dispositivos:</label>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline1" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline1">Sensor de luz ambiente</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline2" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline2">Persianas automáticas</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline3" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline3">Luces de exterior automáticas</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                                            <input type="checkbox" id="customCheckInline4" class="custom-control-input">
+                                                            <label class="custom-control-label" for="customCheckInline4">Calefacción automática</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <hr class="hr light">
+                    <h5 style="margin-bottom: 0px;">Calefacción</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5></h5>
+                    <ul class="list-unstyled">
+                        <li style="padding-bottom: 5px;">
+                            <i class="fas fa-info-circle" style="padding-right: 5px;"></i>
+                            <strong>La calefacción está desactivada.</strong>
+                        </li>
+                        <li class="text-justify">La calefacción puede programarse manualmente o de forma automática (rutinas).</li>
+                        <li><button class="btn btn-primary light" id="actCalefaccion" type="button">Activar calefacción</button></li>
+                    </ul>
+                </div>
+                <div class="col" style="margin-top: 5px;padding-left: 20px;">
+                    <form><label style="font-size: 16px;">Programación</label>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="calManual" class="custom-control-input" name="calefaccion" checked="" value="calManual">
+                            <label class="custom-control-label" for="calManual">Manual</label>
+                        </div>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="calAuto" class="custom-control-input" name="calefaccion" value="calAuto">
+                            <label class="custom-control-label" for="calAuto">Basada en una rutina</label>
+                        </div>
+                        <div class="custom-control custom-radio light">
+                            <input type="radio" id="calHorario" class="custom-control-input" name="calefaccion" value="calProg">
+                            <label class="custom-control-label" for="calHorario">Programación diaria</label>
+                        </div>
+                    </form>
+                    <ul hidden id="calProg" class="list-group">
+                        <li class="list-group-item light" style="margin-top: 10px;">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="rutDurmiendo" class="custom-control-input">
+                                        <label class="custom-control-label" for="rutDurmiendo">Durmiendo</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="rutBuenosDias" class="custom-control-input">
+                                        <label class="custom-control-label" for="rutBuenosDias">Buenos días</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-control custom-checkbox light custom-control-inline" style="padding-left: 36px;padding-top: 1px;margin-top: 1px;">
+                                        <input type="checkbox" id="rutSalir" class="custom-control-input">
+                                        <label class="custom-control-label" for="rutSalir">Salir de casa</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul hidden id="calAuto" class="list-group">
+                        <li class="list-group-item light" style="margin-top: 10px;">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label style="padding-right: 5px;font-size: 16px;">Desde</label>
+                                            <input class="float-right datetime" id="calInitManual" type="time">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label style="padding-right: 5px;font-size: 16px;">Hasta</label>
+                                            <input class="d-inline-block float-right datetime" id="calFinManual" type="time">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary light" id="calProgGuardar" type="button">Guardar</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-basic light">
+            <footer>
+                <p class="copyright light" style="padding-bottom: 10px;">2020 - Proyecto ASIR - Franciso Gálvez</p>
+            </footer>
+        </div>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/misc/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/misc/bs-init.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/theming/change-theme.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/listeners/show-form-elements.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/reboot-system.js') }}"></script>
+    </body>
+</html>
